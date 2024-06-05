@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  Arial, sans-serif;
+}
+
+:root {
+    --cor-principal: #f3f3f3;
+    --cor-check: black;
+}
+
+.modo-noturno {
+    --cor-principal: #000522;
+    --cor-check: green;
+    transition: background-color 0.3s;
+}
+
+body {
+    background-color: var(--cor-principal);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow:  0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    gap: 20px;
+}
+
+h1{
+    color: #333;
+    text-align: center;
+}
+
+textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    width: 100%;
+    resize: none;
+}
+
+
+#copiar-colar {
+    font-size: 18px;
+    color: #000000;
+    margin-left: 320px;
+    cursor: pointer;
+}
+
+.troca-modo-container {
+    position: relative;
+    width: 40px;
+    height: 20px;
+}
+
+
+.troca-modo-container input[type="checkbox"] {
+    display: none;
+}
+
+
+.deslizador {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--cor-check);
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.deslizador::before {
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 3px;
+    background-color: var(--cor-principal);
+    content: "";
+    transition: transform 0.3s;
+}
+
+
+input[type="checkbox"]:checked + .deslizador {
+    background-color: var(--cor-check);
+}
+
+
+input[type="checkbox"]:checked + .deslizador::before {
+    transform: translateX(20px);
+}
